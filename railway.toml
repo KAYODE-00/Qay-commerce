@@ -1,0 +1,11 @@
+[build]
+builder = "railpack"
+buildCommand = "pnpm --filter @dtc/backend build"
+
+[deploy]
+preDeployCommand = ["pnpm --filter @dtc/backend exec medusa db:migrate"]
+startCommand = "pnpm --filter @dtc/backend start"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
