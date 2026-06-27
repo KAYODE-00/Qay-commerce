@@ -17,6 +17,9 @@ const stripeProvider = process.env.STRIPE_API_KEY
   : null
 
 module.exports = defineConfig({
+  admin: {
+    backendUrl: process.env.MEDUSA_BACKEND_URL || (process.env.NODE_ENV === 'production' ? 'https://qay-commerce.onrender.com' : 'http://localhost:9000'),
+  },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
